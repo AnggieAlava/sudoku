@@ -1,2 +1,6 @@
 .python-version
 __pycache__
+static/dist
+.vscode
+node_modules
+.parcel-cache

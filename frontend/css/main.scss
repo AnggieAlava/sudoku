@@ -1,3 +1,14 @@
-body{
-    background-color: blue;
+.board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  gap: 1px;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid tomato;
+  font-size: 1.5rem;
 }

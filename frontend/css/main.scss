@@ -1,8 +1,13 @@
 .board {
+  width: 800px;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows: repeat(9, 1fr);
-  gap: 1px;
+  gap: 0px;
+  &:nth-child(3n) {
+    background-color: red;
+  }
 }
 
 .cell {
@@ -10,4 +15,39 @@
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:nth-child(n):nth-child(-n + 9) {
+    border-top-width: 4px;
+  }
+  &:nth-child(n + 73):nth-child(-n + 81) {
+    border-bottom-width: 4px;
+  }
+  &:nth-child(3n) {
+    border-right-width: 4px;
+  }
+  &:nth-child(9n + 1) {
+    border-left-width: 4px;
+  }
+  &:nth-child(n + 19):nth-child(-n + 27) {
+    border-bottom-width: 4px;
+  }
+  &:nth-child(n + 46):nth-child(-n + 54) {
+    border-bottom-width: 4px;
+  }
+
+  input {
+    border: none;
+    background-color: transparent;
+    font-size: 50px;
+    line-height: 70px;
+    text-align: center;
+    height: 70px;
+    width: 70px;
+  }
 }

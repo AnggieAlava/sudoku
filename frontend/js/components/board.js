@@ -1,17 +1,20 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { Cell } from "./cell";
-import { Button } from "./button";
+import { Solution } from "./solution";
+import { GenerateSudoku } from "./generateSudoku";
 
 export const Board = () => {
-  const [board, setBoard] = useState([]);
-
-  const getPuzzle = useEffect(async () => {
-    let response = await fetch(
-      "https://sudoku-api.vercel.app/api/dosuku?query={newboard(limit:1){grids{value}}}"
-    );
-    let data = await response.json();
-    setBoard(data.newboard.grids[0].value);
-  }, []);
+  const [board, setBoard] = useState([
+    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
+  ]);
   const numOfGiven = useMemo(() => {
     let total = 0;
     board.forEach((row) => {
@@ -37,7 +40,8 @@ export const Board = () => {
     <>
       <div className="stats">Number of given: {numOfGiven}</div>
       <div className="board">{newBoard}</div>
-      <Button board={board} setBoard={setBoard} />
+      <Solution board={board} setBoard={setBoard} />
+      <GenerateSudoku board={board} setBoard={setBoard} />
     </>
   );
 };

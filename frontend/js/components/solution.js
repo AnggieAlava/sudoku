@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Button = ({ board, setBoard }) => {
+export const Solution = ({ board, setBoard }) => {
   const btnClick = async () => {
     const response = await fetch("/solve", {
       method: "POST",
@@ -22,3 +22,5 @@ export const Button = ({ board, setBoard }) => {
     </button>
   );
 };
+
+// este es un post que necesita los valores del board y el setBoard para que los cambie

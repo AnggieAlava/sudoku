@@ -15,3 +15,6 @@ build: ## Builds production scripts
 
 watch: ## Runs parcel in watch mode
 	@npx parcel watch --dist-dir static/dist frontend/js/main.js frontend/css/main.scss
+
+clean: ## Cleans frontend
+	@rm -rf static/dist

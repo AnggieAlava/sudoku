@@ -18,3 +18,5 @@ watch: ## Runs parcel in watch mode
 
 clean: ## Cleans frontend
 	@rm -rf static/dist
+start: ## Run with Jinjan2
+	@make -j2 watch run

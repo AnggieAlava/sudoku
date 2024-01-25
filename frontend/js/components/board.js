@@ -5,15 +5,15 @@ import { GenerateSudoku } from "./generateSudoku";
 
 export const Board = () => {
   const [board, setBoard] = useState([
-    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0", "0", "0"],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", ""],
   ]);
   const numOfGiven = useMemo(() => {
     let total = 0;
@@ -40,8 +40,10 @@ export const Board = () => {
     <>
       <div className="stats">Number of given: {numOfGiven}</div>
       <div className="board">{newBoard}</div>
-      <Solution board={board} setBoard={setBoard} />
-      <GenerateSudoku board={board} setBoard={setBoard} />
+      <div className="btn-container">
+        <Solution board={board} setBoard={setBoard} />
+        <GenerateSudoku board={board} setBoard={setBoard} />
+      </div>
     </>
   );
 };

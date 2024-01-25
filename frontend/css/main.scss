@@ -1,4 +1,5 @@
 #container {
+  background-color: snow;
   display: grid;
   place-content: center;
 }
@@ -57,21 +58,40 @@
   }
 }
 
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .btn {
-  background-color: rgb(214, 143, 235);
   border-radius: 25px;
   border: none;
-  color: rgb(41, 35, 35);
-  font-size: 35px;
-  font-weight: 600;
+  color: #2f3e46;
+  font-size: 20px;
+  font-weight: 700;
   height: 80px;
-  margin-top: 15px;
   margin: auto;
-  width: 300px;
+  width: 200px;
+}
+
+.btn:first-child {
+  background-color: #ffd166;
+}
+
+.btn:last-child {
+  background-color: #ef476f;
 }
 
 .btn:hover {
   cursor: pointer;
-  background-color: rgb(186, 97, 245);
-  color: snow;
+  color: black;
+}
+
+.btn:first-child:hover {
+  background-color: #fcbf49;
+}
+
+.btn:last-child:hover {
+  background-color: #e63946;
 }

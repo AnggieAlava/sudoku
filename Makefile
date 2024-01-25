@@ -20,3 +20,8 @@ clean: ## Cleans frontend
 	@rm -rf static/dist
 start: ## Run with Jinjan2
 	@make -j2 watch run
+
+image: ## Build docker image
+	@docker build -t registry.gitlab.com/anggieprojects/anggiesudoku .
+push: ## Push docker image
+	@docker push registry.gitlab.com/anggieprojects/anggiesudoku

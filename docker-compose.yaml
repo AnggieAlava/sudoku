@@ -1,0 +1,27 @@
+version: '3.3'
+services:
+  back:
+    image: registry.gitlab.com/anggieprojects/anggiesudoku:latest
+    networks:
+     - net
+     - traefik-public
+    logging:
+      driver: json-file
+    deploy:
+      labels:
+        traefik.http.routers.sudoku-http.entrypoints: http
+        traefik.http.routers.sudoku-https.tls: 'true'
+        traefik.http.routers.sudoku-https.entrypoints: https
+        traefik.http.routers.sudoku-http.middlewares: https-redirect
+        traefik.http.routers.sudoku-https.rule: Host(`sudoku2.angeles.rocks`)
+        traefik.constraint-label: traefik-public
+        traefik.http.services.sudoku.loadbalancer.server.port: '8000'
+        traefik.http.routers.sudoku-https.tls.certresolver: le
+        traefik.docker.network: traefik-public
+        traefik.enable: 'true'
+        traefik.http.routers.sudoku-http.rule: Host(`sudoku2.angeles.rocks`)
+networks:
+  net:
+    driver: overlay
+  traefik-public:
+    external: true
